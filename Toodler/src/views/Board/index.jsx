@@ -6,6 +6,7 @@ import styles from './styles';
 import Toolbar from '../../components/Toolbar';
 import BoardList from '../../components/BoardList';
 
+
 class Board extends React.Component {
   render() {
     return (
