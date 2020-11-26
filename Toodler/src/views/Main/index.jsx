@@ -5,7 +5,6 @@ import {
 import logo from '../../resources/logo.png';
 import styles from './styles';
 
-
 const Main = ({navigation: { navigate } }) => (
   <View style={styles.container}>
     <Image style={styles.logo} source={logo} />

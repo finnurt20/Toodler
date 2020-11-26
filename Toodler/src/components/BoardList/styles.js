@@ -1,15 +1,15 @@
 import { StyleSheet, StatusBar } from 'react-native';
-import { toodlerRed } from '../../styles/colors';
 
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: toodlerRed,
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'stretch',
+    marginTop: StatusBar.currentHeight || 0,
     padding: 10,
     marginVertical: 8,
+    marginHorizontal: 5,
   },
   item: {
     padding: 10,
