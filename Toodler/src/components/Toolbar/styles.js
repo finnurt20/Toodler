@@ -11,7 +11,7 @@ export default StyleSheet.create({
   },
   toolbarAction: {
     flex: 1,
-    alignItems: 'flex-end',
+    alignItems: 'center',
     marginRight: 10,
   },
   toolbarActionText: {

@@ -10,15 +10,27 @@ import Toolbar from '../../components/Toolbar';
 
 class Lists extends React.Component {
   state = {
-    currentList: [],
-  }
-  async componentDidMount() {
-
+    lists: data.lists,
+    selectedLists: [],
   }
 
-  render() {
-    //Make a new list with the lists the have the boarId assoiciated
-    //And send it to the Lister component
+  onListLongPress(id) {
+    const { selectedLists } =this.state;
+    if (selectedLists.indexOf(id) !== -1){
+      //the list is already in the list
+      this.setState({
+        selectedLists: selectedLists.filter(list => list !== id)
+      });
+    } else {
+      //The list needs to be added to the list
+      this.setState({
+        selectedLists: [ ...selectedLists, id]
+      });
+    }
+  }
+
+  //Gets the list for the board that was pressed on
+  getListsForBoard() {
     var list = [];
     const { navigation } = this.props;
     const boardId = navigation.getParam('boardid', '');
@@ -27,10 +39,18 @@ class Lists extends React.Component {
         list.push(data.lists[i])
       }
     }
+    return list
+  }
+
+  render() {
+    const { selectedLists, lists } = this.state;
     return (
     <View style={{flex: 1} }>
-      <Toolbar />
-      <Lister lists={list}/>
+      <Toolbar hasSelectedItem={selectedLists.length > 0}/>
+      <Lister
+        onLongPress={(id) => this.onListLongPress(id)}
+        lists={this.getListsForBoard()}
+        selectedLists={ selectedLists }/>
     </View>
     )
   };

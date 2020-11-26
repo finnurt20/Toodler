@@ -20,5 +20,11 @@ export default StyleSheet.create({
   title: {
     textAlign: 'center',
     fontSize: 20
+  },
+  checkmark: {
+    position: 'absolute',
+    top: 15,
+    right: 15,
+    fontSize: 27,
   }
 });

@@ -10,15 +10,24 @@ import Toolbar from '../../components/Toolbar';
 
 class Tasks extends React.Component {
   state = {
-    isFinished: 0,
-    name: '',
-    description: '',
-    id: -1,
+    selectedTasks: [],
   }
-  async componentDidMount() {
+  onTasksLongPress(id) {
+    const { selectedTasks } =this.state;
+    if (selectedTasks.indexOf(id) !== -1){
+      //the board is already in the list
+      this.setState({
+        selectedTasks: selectedTasks.filter(task => task !== id)
+      });
+    } else {
+      //The board needs to be added to the list
+      this.setState({
+        selectedTasks: [ ...selectedTasks, id]
+      });
+    }
+  }
 
-  }
-  render() {
+  getTasksForList() {
     var tasks = [];
     const { navigation } = this.props;
     const listId = navigation.getParam('listId', '');
@@ -27,10 +36,19 @@ class Tasks extends React.Component {
         tasks.push(data.tasks[i])
       }
     }
+    return tasks
+  }
+
+  render() {
+    const { selectedTasks, tasks } = this.state;
     return (
     <View style={{flex: 1} }>
-      <Toolbar />
-      <TaskList tasks={tasks}/>
+      <Toolbar hasSelectedItem={selectedTasks.length > 0}/>
+      <TaskList
+        onLongPress={(id) => this.onTasksLongPress(id)}
+        tasks={ this.getTasksForList() }
+        selectedTasks={ selectedTasks }
+      />
     </View>
     )
   };

@@ -28,4 +28,10 @@ export default StyleSheet.create({
     textAlign: 'right',
     fontWeight: 'bold'
   },
+  checkmark: {
+    position: 'absolute',
+    top: 15,
+    right: 15,
+    fontSize: 27,
+  }
 });
