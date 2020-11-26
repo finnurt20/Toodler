@@ -5,11 +5,11 @@ import {
 import logo from '../../resources/logo.png';
 import styles from './styles';
 
-const Main = () => (
+const Main = ({navigation: { navigate } }) => (
   <View style={styles.container}>
     <Image style={styles.logo} source={logo} />
     <Text style={styles.title}>Toodler</Text>
-    <TouchableHighlight style={styles.button}>
+    <TouchableHighlight style={styles.button} onPress={() => navigate('Board')}>
       <Text style={styles.buttonText}>Start planning!</Text>
     </TouchableHighlight>
   </View>
