@@ -9,4 +9,4 @@ const ImageThumbnail = ({ id, name, thumbnailPhoto}) => (
       source={{ uri: thumbnailPhoto }} />
 );
 
-export default ImageThumbnail
+export default ImageThumbnail;
