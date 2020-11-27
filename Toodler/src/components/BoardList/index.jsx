@@ -47,14 +47,14 @@ const BoardList = ({ boards, navigation: { navigate }, onLongPress, selectedBoar
     );
   }
   return (
-  <SafeAreaView style={styles.container}>
-    <FlatList
-      data={boards}
-      renderItem={renderItem}
-      keyExtractor={(item) => item.id.toString()}
-      extraData={[selectedId, selectedBoards]}
-    />
-  </SafeAreaView>
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        data={boards}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id.toString()}
+        extraData={[selectedId, selectedBoards]}
+      />
+    </SafeAreaView>
 );
 };
 
