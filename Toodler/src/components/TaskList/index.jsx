@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withNavigation } from 'react-navigation';
 import { AntDesign } from '@expo/vector-icons';
 import { View, FlatList, Text, SafeAreaView, TouchableOpacity } from 'react-native';
+import toodlerBlue from '../../styles/colors';
 import styles from './styles';
 
 const Item = ({ item, onPress, style, onLongPress, isSelected }) => (
@@ -30,7 +31,7 @@ const Item = ({ item, onPress, style, onLongPress, isSelected }) => (
 const TaskList = ({ tasks, onLongPress, selectedTasks, onPress } ) => {
   const [selectedId, setSelectedId] = useState(null);
   const renderItem = ({ item }) => {
-    const backgroundColor = item.id === selectedId ? "#ffffff" : item.color;
+    const backgroundColor = item.id === selectedId ? '#5a57ff' : '#6bd1fa';
 
   return (
     <Item
