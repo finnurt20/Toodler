@@ -54,4 +54,17 @@ const TaskList = ({ tasks, onLongPress, selectedTasks, onPress } ) => {
   );
 };
 
+TaskList.propTypes = {
+  tasks: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    isFinished: PropTypes.bool.isRequired,
+    listId: PropTypes.number.isRequired,
+  })).isRequired,
+  onLongPress: PropTypes.func.isRequired,
+  selectedTasks: PropTypes.arrayOf(PropTypes.number).isRequired,
+  // onPress: PropTypes.func.isRequired
+}
+
 export default withNavigation(TaskList);

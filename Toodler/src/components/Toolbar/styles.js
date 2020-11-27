@@ -3,7 +3,7 @@ import { toodlerRed, toodlerBlue } from '../../styles/colors';
 
 export default StyleSheet.create({
   toolbar: {
-    flexDirection: 'row-reverse',
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     height: 80,
@@ -12,11 +12,10 @@ export default StyleSheet.create({
   toolbarAction: {
     flex: 1,
     alignItems: 'center',
-    marginRight: 10,
   },
   toolbarActionText: {
     fontWeight: 'bold',
     color: 'white',
-    fontSize: 16,
+    fontSize: 20,
   }
 });

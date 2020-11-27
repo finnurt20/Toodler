@@ -51,4 +51,15 @@ const Lister = ({ lists, navigation: { navigate }, onLongPress, selectedLists}) 
 );
 };
 
+Lister.propTypes = {
+  lists: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
+    boardId: PropTypes.number.isRequired,
+  })).isRequired,
+  onLongPress: PropTypes.func.isRequired,
+  selectedLists: PropTypes.arrayOf(PropTypes.number).isRequired,
+}
+
 export default withNavigation(Lister);
