@@ -68,6 +68,18 @@ class Lists extends React.Component {
     }
     return list
   }
+  listId(){
+    const { lists } = this.state
+    const { navigation } = this.props;
+    const boardId = navigation.getParam('boardid', '');
+    if (lists.length>0){
+      const newId = lists.slice(-1)[0].id + 7 * 3
+      return newId
+    } else {
+      const newId = boardId * 13 + 3
+      return newId
+    }
+  }
 
   addList=(myArray)=>{
     const { lists } = this.state
@@ -76,7 +88,7 @@ class Lists extends React.Component {
     //Get the last id from all the lists and add 1 to it to get a new id,
     // Had problems giving lists id because they are not really saved in the database
     //But they still get there unic id
-    const newId = lists.slice(-1)[0].id + 4 * 3
+    const newId = this.listId()
     let newList = {
       id: newId,
       name: myArray.name,

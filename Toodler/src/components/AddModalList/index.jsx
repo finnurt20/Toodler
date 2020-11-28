@@ -5,7 +5,6 @@ import { TouchableOpacity, Text, TextInput, TouchableHighlight, Button, AsyncSto
 import Modal from '../Modal';
 import styles from './styles';
 import { ColorPicker } from 'react-native-color-picker'
-import { SketchPicker } from 'react-color';
 
 class AddModalList extends React.Component {
   constructor(props){

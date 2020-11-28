@@ -56,6 +56,18 @@ class Tasks extends React.Component {
     }
     return tasks
   }
+  taskId(){
+    const { tasks } = this.state
+    const { navigation } = this.props;
+    const listId = navigation.getParam('listid', '');
+    if (tasks.length>0){
+      const newId = tasks.slice(-1)[0].id + 7 * 3
+      return newId
+    } else {
+      const newId = listId * 13 + 3
+      return newId
+    }
+  }
   addTask=(myArray)=>{
     const { tasks } = this.state
     const { navigation } = this.props;
@@ -63,7 +75,7 @@ class Tasks extends React.Component {
     //Get the last id from all the lists and add 1 to it to get a new id,
     // Had problems giving lists id because they are not really saved in the database
     //But they still get there unic id
-    const newId = tasks.slice(-1)[0].id + 4 * 3
+    const newId = this.taskId()
     let newTask = {
       id: newId,
       name: myArray.name,
