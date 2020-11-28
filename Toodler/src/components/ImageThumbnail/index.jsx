@@ -11,6 +11,6 @@ const ImageThumbnail = ({ id, name, thumbnailPhoto}) => (
 
 ImageThumbnail.propTypes = {
   name: PropTypes.string.isRequired,
-  thumbnailPhoto: PropTypes.string.isRequired
+  // thumbnailPhoto: PropTypes.string.isRequired
 }
 export default ImageThumbnail;

@@ -11,7 +11,7 @@ const Item = ({ item, onPress, style, onLongPress, isSelected }) => (
   // () => item.isFinished = !item.isFinished
   <TouchableOpacity
     style={[styles.item, style]}
-    onPress={() => item.isFinished = !item.isFinished}
+    onPress={() => onPress(item.id)}
     onLongPress={() => onLongPress(item.id)}>
     {
       isSelected
@@ -28,7 +28,7 @@ const Item = ({ item, onPress, style, onLongPress, isSelected }) => (
   </TouchableOpacity>
 );
 
-const TaskList = ({ tasks, onLongPress, selectedTasks, onPress } ) => {
+const TaskList = ({ tasks, onLongPress, selectedTasks, onPress }) => {
   const [selectedId, setSelectedId] = useState(null);
   const renderItem = ({ item }) => {
     const backgroundColor = item.id === selectedId ? '#5a57ff' : '#6bd1fa';

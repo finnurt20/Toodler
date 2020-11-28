@@ -24,8 +24,8 @@ const Toolbar = ({ onAdd, onRemove, hasSelectedItem}) => (
 );
 
 Toolbar.propTypes = {
-  //onAdd: PropTypes.func.isRequired,
-  //onRemove: PropTypes.func.isRequired,
+  onAdd: PropTypes.func.isRequired,
+  onRemove: PropTypes.func.isRequired,
   hasSelectedItem: PropTypes.bool.isRequired,
 };
 
